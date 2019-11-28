@@ -1,0 +1,5 @@
+- name: get the repo
+  git: repo=https://github.com/amaizfinance/redis-operator.git dest=/root/amaizfinance-redis-operator
+
+- name: create Redis operator resources
+  shell: cd /root/amaizfinance-redis-operator && kubectl apply -Rf deploy
