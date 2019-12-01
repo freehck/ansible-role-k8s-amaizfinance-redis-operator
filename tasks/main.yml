@@ -1,5 +1,9 @@
-- name: get the repo
-  git: repo=https://github.com/amaizfinance/redis-operator.git dest=/root/amaizfinance-redis-operator
+- name: get the repo with amaizfinance redis operator
+  git:
+    repo: "https://github.com/amaizfinance/redis-operator.git"
+    dest: "/root/amaizfinance-redis-operator"
+    refspec: "v0.1.4"
 
 - name: create Redis operator resources
   shell: cd /root/amaizfinance-redis-operator && kubectl apply -Rf deploy
+  # TODO: when you use shell module, it's mandatory to use register and changed_when directives.
